@@ -2,7 +2,7 @@ Code for "Evolution of error correction through a need for speed"
 
 ### Citing
 ```
-@article{,
+@article{
   author       = {R. Ravasio, K. Husain, C. G. Evans, R. Phillips, M. Ribezzi, J. W. Szostak, A. Murugan},
   title        = {Evolution of error correction through a need for speed},
   year         = 2024,
