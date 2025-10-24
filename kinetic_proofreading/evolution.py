@@ -126,7 +126,6 @@ def evolve(N, L, mcsteps, T, t_stall, q, delta, n_samples, size, dsize, maxsize)
 		track_phi_s.append(track_phi)
 		track_ent_s.append(track_S)
 		track_time_s.append(track_time)
-		#track_k_s.append(track_k[-1])
 		track_k_s.append(track_k)
 		track_params_s.append(track_params)
 
@@ -252,7 +251,6 @@ def evolve_from_ic(N, L, mcsteps, T, t_stall, q, delta, n_samples, size, dsize, 
 		track_phi_s.append(track_phi)
 		track_ent_s.append(track_S)
 		track_time_s.append(track_time)
-		#track_k_s.append(track_k[-1])
 		track_params_s.append(track_params)
 
 	return track_error_s, track_speed_s, track_fpt_s, track_fptw_s, track_phi_s, track_ent_s, track_time_s, track_params_s
