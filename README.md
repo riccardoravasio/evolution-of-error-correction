@@ -9,3 +9,10 @@ Code for "Evolution of error correction through a need for speed"
   doi          = {doi.org/10.48550/arXiv.2405.10911},
 }
 ```
+### Kinetic proofreading
+
+### Self-assembly
+
+### Growth curves analysis
+
+### Plotting the data from the Supplementary Table of Ravikumar et al. 2018
