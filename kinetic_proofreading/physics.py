@@ -136,8 +136,7 @@ def fitness_dissipation(k_r, k_w, p_0, N, init, end, t_stall, q):
     err = error(k_r, k_w, N, init, end)
     diss = entropy_dissipation(k_r, N, init)
 
-    #return (1-err)*firstpt(k_r, p_0, N, end) + err*firstpt(k_w, p_0, N, end) + t_stall*err + q*diss
-    return firstpt(k_r, p_0, N, end) + t_stall*err + q*diss
+    return (1-err)*firstpt(k_r, p_0, N, end) + err*firstpt(k_w, p_0, N, end) + t_stall*err + q*diss
 
 
 def entropy_dissipation(k, N, init):
