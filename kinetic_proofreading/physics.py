@@ -112,8 +112,6 @@ def error_ss(k_r, k_w, N, init, end):
         
     err = ( evec_w[:,0][end]/evec_w[:,0][init] ) / ( evec_r[:,0][end]/evec_r[:,0][init] )
 
-    #print('p_0 W: ', evec_w[:,0][init], 'p_0 R: ', evec_r[:,0][init])
-
     return err.real, evec_r[:,0][end]/sum(evec_r[:,0]), evec_w[:,0][end]/sum(evec_w[:,0])
 
 
