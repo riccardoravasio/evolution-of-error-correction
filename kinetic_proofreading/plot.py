@@ -41,13 +41,12 @@ def plot_network(track_k_s, sample, n_samples, N, t_stall, T, flag_mean):
 
 	edges, weights = zip(*nx.get_edge_attributes(G, 'length').items())
 	arc_weight = nx.get_edge_attributes(G,'weight')
-	#print(list(weights))
 
 	edge_labels = dict([((u,v,),d['length']) for u,v,d in G.edges(data=True)])
 	import matplotlib.cm as cm
 	cmap=pal.colorbrewer.sequential.Greys_9.mpl_colormap
 	edge_col = [cmap(G[u][v]['length']) for u,v,d in G.edges(data=True)]
-	#[print('k', u, v, G[u][v]['length']) for u,v,d in G.edges(data=True)]
+
 	node_color = []
 	for i in range(N):
 	    if i == 0:
@@ -99,14 +98,13 @@ def plot_single_network(track_k, N, t_stall, T):
 
 	edges, weights = zip(*nx.get_edge_attributes(G, 'length').items())
 	arc_weight = nx.get_edge_attributes(G,'weight')
-	#print(list(weights))
 
 	edge_labels = dict([((u,v,),d['length']) for u,v,d in G.edges(data=True)])
 	import matplotlib.cm as cm
 	cmap=pal.scientific.sequential.GrayC_20.mpl_colormap
 	cmap=pal.scientific.sequential.LaJolla_20.mpl_colormap
 	edge_col = [cmap(G[u][v]['length']) for u,v,d in G.edges(data=True)]
-	#[print('k', u, v, G[u][v]['length']) for u,v,d in G.edges(data=True)]
+
 	node_color = []
 	for i in range(N):
 	    if i == 0:
