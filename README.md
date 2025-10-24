@@ -11,6 +11,8 @@ Code for "Evolution of error correction through a need for speed"
 ```
 ### Kinetic proofreading
 
+The codes used for the model of kinetic proofreading and the in-silico evolution for speed of a random Markov network. General functions used across the Python notebooks are defined modularly in the Python codes and loaded in each notebook. The data used to make the paper figures can be downloaded from [] and loaded in the notebooks. 
+
 ### Self-assembly
 
 ### Growth curves analysis
