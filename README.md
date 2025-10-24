@@ -17,7 +17,7 @@ The codes used for the model of kinetic proofreading and the in-silico evolution
 
 ### Growth curves analysis
 
-Code used to get the growth rate of the yeast strains with different DNA polymerases as function of 3-AT. The raw growth assay data (OD6000) used for the analysis can be found in the same folder. 
+Code used to get the growth rate of the yeast strains with different DNA polymerases as function of 3-AT. The raw growth assay data (OD600 BMG SPECTROstar Nano) used for the analysis can be found in the same folder. 
 
 ### Plotting the data from the Supplementary Table of Ravikumar et al. 2018
 
