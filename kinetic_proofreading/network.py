@@ -248,4 +248,3 @@ def mutate_k_dkp(i, j, V, B, phi, N, eq, flag, size, delta, dsize):
     k_w = copy.copy(k_w)/max_k(copy.copy(k_r))
 
     return k_r1, k_w, V_m, B_m, phi_m
-
