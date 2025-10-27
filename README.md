@@ -15,10 +15,6 @@ The codes used for the model of kinetic proofreading and the in-silico evolution
 
 ### Self-assembly
 
-### Growth curves analysis
-
-Code used to get the growth rate of the yeast strains with different DNA polymerases as function of 3-AT. The raw growth assay data (OD600 BMG SPECTROstar Nano) and the reformatted version used for the analysis can be found in the same folder. 
-
 ### Plotting the data from the Supplementary Table of Ravikumar et al. 2018
 
 The notebook used for plotting and looking at the data reported in Table 2 of the Supplementary Material of Ravikumar et al. _Cell_ **175** 2018, as well as a reformatted version of Table 2. The reformatting is necessary to be able to load the data with pandas.
