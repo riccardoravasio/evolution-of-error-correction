@@ -6,10 +6,8 @@
 
 import rgrow as rg
 import numpy as np
-import sys
-import matplotlib.pyplot as plt
-import seaborn as sns
 import math
+from pathlib import Path
 
 
 # # System definitions
@@ -456,7 +454,7 @@ def varsims(
         u = system.set_param("g_se", gsemelt)
         for state in states:
             system.update_all(state, u)
-        results = system.evolve_states(
+        results = system.evolve(
             [states[i] for i in do_sims], size_max=smax, for_time=melttime
         )
         for i in do_sims:
@@ -473,7 +471,7 @@ def varsims(
         u = system.set_param("g_se", gsegrow)
         for state in states:
             system.update_all(state, u)
-        results = system.evolve_states(
+        results = system.evolve(
             [states[i] for i in do_sims], size_max=smax, for_time=meltperiod - melttime
         )
         for i in do_sims:
@@ -636,9 +634,11 @@ def sweep_melttime(
 # In[25]:
 
 
-with tb.open_file("2023-11-21_sims-sweep-melt-time-big.h5", "w", filters=tb.Filters(complevel=5, complib='blosc2:zstd')) as h5f:
+# Make output directory if it doesn't exist
+Path("self-assembly_data").mkdir(exist_ok=True)
+with tb.open_file("self-assembly_data/2023-11-21_sims-sweep-melt-time-big.h5", "w", filters=tb.Filters(complevel=5, complib='blosc2:zstd')) as h5f:
     for s in ["stall_error", "mediumstall_error", "stall_noerror"]:
-        group = h5f.create_group(f"/", f"{s}", f"System {s}", createparents=True)
+        group = h5f.create_group("/", f"{s}", f"System {s}", createparents=True)
         group.system = s
     for gsemelt in [8.4, 8.3]:
         for s in ["stall_error", "mediumstall_error", "stall_noerror"]:

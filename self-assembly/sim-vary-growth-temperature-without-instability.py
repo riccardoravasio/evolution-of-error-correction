@@ -7,7 +7,7 @@
 import rgrow as rg
 import numpy as np
 import math
-
+from pathlib import Path
 
 # # System definitions
 
@@ -687,8 +687,10 @@ def sweep_growthtemp(
 # In[25]:
 
 
+# Make output directory if it doesn't exist
+Path("self-assembly_data").mkdir(exist_ok=True)
 with tb.open_file(
-    "2023-11-24_sims-sweep-growth-temperature-big-nofilter.h5",
+    "self-assembly_data/2023-11-24_sims-sweep-growth-temperature-big-nofilter.h5",
     "w",
     #filters=tb.Filters(complevel=5, complib="blosc2:zstd"),
 ) as h5f:

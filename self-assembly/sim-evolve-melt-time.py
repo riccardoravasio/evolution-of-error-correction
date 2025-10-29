@@ -10,6 +10,7 @@ import sys
 import matplotlib.pyplot as plt
 import seaborn as sns
 import math
+from pathlib import Path
 
 
 # # System definitions
@@ -456,7 +457,7 @@ def varsims(
         u = system.set_param("g_se", gsemelt)
         for state in states:
             system.update_all(state, u)
-        results = system.evolve_states(
+        results = system.evolve(
             [states[i] for i in do_sims], size_max=smax, for_time=melttime
         )
         for i in do_sims:
@@ -473,7 +474,7 @@ def varsims(
         u = system.set_param("g_se", gsegrow)
         for state in states:
             system.update_all(state, u)
-        results = system.evolve_states(
+        results = system.evolve(
             [states[i] for i in do_sims], size_max=smax, for_time=meltperiod - melttime
         )
         for i in do_sims:
@@ -521,7 +522,7 @@ def createsimres(nsims=20, canvassize=(10, 128)):
         mms_array = tb.Float64Col(shape=(nsims))
         lastcycle = tb.Int64Col(shape=(nsims))
         
-        final_tiles_array = tb.UInt8Col(shape=(nsims, canvassize[0], canvassize[1]))
+        #final_tiles_array = tb.UInt8Col(shape=(nsims, canvassize[0], canvassize[1]))
         mismatch_locs_array = tb.UInt8Col(shape=(nsims, canvassize[0], canvassize[1]))
         
     return SimResults
@@ -632,7 +633,7 @@ def evolve_params(
             trace_table.append([(res["times_array"][j][k], res["sizes_array"][j][k], res["mismatches_array"][j][k]) for k in range(res["lastcycle"][j])])
             trace_table.flush()
         
-        row["final_tiles_array"] = np.array([state.canvas_view for state in res["states"]])
+        #row["final_tiles_array"] = np.array([state.canvas_view for state in res["states"]])
         row["mismatch_locs_array"] = np.array([res["system"].calc_mismatch_locations(state) for state in res['states']])
         row.append()
         restable.flush()
@@ -658,7 +659,11 @@ def evolve_params(
 
 
 NREPS = 10
-with tb.open_file("2023-11-24_sims-evolve-only-melttime-big.h5", "w") as h5f: # , filters=tb.Filters(complevel=5, complib='blosc2:zstd')) as h5f:
+
+# Make output directory if it doesn't exist
+Path("self-assembly_data").mkdir(exist_ok=True)
+
+with tb.open_file("self-assembly_data/2023-12-04_sims-evolve-only-melttime-big.h5", "w", filters=tb.Filters(complevel=5)) as h5f:
     for s in ["stall_error", "mediumstall_error", "stall_noerror"]:
         group = h5f.create_group(f"/", f"{s}", f"System {s}", createparents=True)
         group.system = s

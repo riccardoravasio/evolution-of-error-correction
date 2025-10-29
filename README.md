@@ -15,6 +15,8 @@ The codes used for the model of kinetic proofreading and the in-silico evolution
 
 ### Self-assembly
 
+Code used for self-assembly simulations.  Python files `sim-*` are used to generate simulation data, while Jupyter notebooks `plot-*` generate the plot panels for the main text and SI.  To use data generated for the paper, download data from [Zenodo 10.5281/zenodo.17478191](https://zenodo.org/uploads/17478191) and extract the zip file in the self-assembly directory.  For both simulation and plotting, creating a virtual environment with the requirements.txt file is recommended.
+
 ### Plotting the data from the Supplementary Table of Ravikumar et al. 2018
 
 The notebook used for plotting and looking at the data reported in Table 2 of the Supplementary Material of Ravikumar et al. _Cell_ **175** 2018, as well as a reformatted version of Table 2. The reformatting is necessary to be able to load the data with pandas.
