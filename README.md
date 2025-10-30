@@ -11,9 +11,11 @@ Code for "Evolution of error correction through a need for speed"
 ```
 ### Kinetic proofreading
 
+The codes used for the model of kinetic proofreading and the in-silico evolution for speed of a random Markov network. General functions used across the Python notebooks are defined modularly in the Python codes and loaded in each notebook. The data used to make the paper figures can be downloaded from [] and loaded in the notebooks. 
+
 ### Self-assembly
 
-### Growth curves analysis
+Code used for self-assembly simulations.  Python files `sim-*` are used to generate simulation data, while Jupyter notebooks `plot-*` generate the plot panels for the main text and SI.  To use data generated for the paper, download data from [Zenodo 10.5281/zenodo.17478191](https://zenodo.org/uploads/17478191) and extract the zip file in the self-assembly directory.  For both simulation and plotting, creating a virtual environment with the requirements.txt file is recommended.
 
 ### Plotting the data from the Supplementary Table of Ravikumar et al. 2018
 

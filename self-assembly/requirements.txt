@@ -1,0 +1,9 @@
+rgrow
+polars
+pandas
+tables
+scipy
+scikits.bootstrap
+numpy
+seaborn
+matplotlib
