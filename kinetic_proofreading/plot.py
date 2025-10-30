@@ -292,7 +292,7 @@ def plot_observables(idx_s, delta, track_time_s, track_speed_s, track_error_s, t
 	    else:
 	        axs[1,1].plot(time, track_ent_s[idx], '-', color='grey', markersize=3, alpha=0.2)
 
-	axs[0,0].set_ylabel('Time to copy strand')
+	axs[0,0].set_ylabel('Time to replicate')
 	axs[0,0].set_yscale('log')
 	axs[0,0].set_xscale('log')
 	
@@ -301,7 +301,7 @@ def plot_observables(idx_s, delta, track_time_s, track_speed_s, track_error_s, t
 	axs[0,0].set_ylim([2e3,0.8e4])
 
 
-	axs[0,1].set_ylabel(r'Mutation rate')
+	axs[0,1].set_ylabel(r'Error rate')
 	axs[0,1].set_yscale('log')
 	axs[0,1].set_xscale('log')
 	xlim = axs[0,0].get_xlim()
@@ -319,7 +319,7 @@ def plot_observables(idx_s, delta, track_time_s, track_speed_s, track_error_s, t
 		axs[1,1].set_yscale('log')
 		axs[1,1].set_ylim([1e-2,1e3])
 
-	axs[1,0].set_ylabel('Time to insert base')
+	axs[1,0].set_ylabel('Time to proofread')
 	axs[1,0].set_xlabel('MC steps')
 	axs[1,0].set_yscale('log')
 	axs[1,0].set_xscale('log')
@@ -352,7 +352,7 @@ def plot_errent(idx_s, delta, track_error, track_ent, alpha, N, T, n_samples, t_
 		        axs[ii].plot(alpha*np.asarray(track_ent[ii][idx]), track_error[ii][idx], '-o', color=colors[ii], markersize=6, alpha=0.2)
 
 	for ii in range(n):
-		axs[0].set_ylabel(r'Mutation rate')
+		axs[0].set_ylabel(r'Error rate')
 		axs[0].set_xlabel(r'$\alpha\times$Entropy dissipation')
 		axs[ii].set_yscale('log')
 		#axs[ii].set_xscale('log')

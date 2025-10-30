@@ -181,6 +181,60 @@ def identify_pareto(xy):
                 break
     # Return ids of scenarios on pareto front
     return population_ids[pareto_front]
+    
+def identify_U_shaped_pareto(xy):
+    """
+    Identify Pareto front for U-shaped curve with two branches.
+    
+    Left branch: Standard Pareto (minimize both x and y)
+    Right branch: Reverse Pareto in x (accept increasing x, minimize y)
+    """
+    # Count number of items
+    population_size = xy.shape[0]
+    population_ids = np.arange(population_size)
+    pareto_front = np.zeros(population_size, dtype=bool)
+    
+    # Find the point with minimum y (time) - this is the bottom of the U
+    min_y_idx = np.argmin(xy[:, 1])
+    x_min_y = xy[min_y_idx, 0]
+    pareto_front[min_y_idx] = 1  # Always include minimum point
+    
+    # Split data into left branch (x < x_min_y) and right branch (x > x_min_y)
+    left_mask = xy[:, 0] < x_min_y
+    right_mask = xy[:, 0] > x_min_y
+    left_indices = population_ids[left_mask]
+    right_indices = population_ids[right_mask]
+    
+    # LEFT BRANCH: Standard Pareto dominance
+    # Point j dominates point i if: j.x <= i.x AND j.y <= i.y (with at least one strict inequality)
+    for i in left_indices:
+        is_dominated = False
+        for j in left_indices:
+            if i != j:
+                # Check if j dominates i
+                if xy[j, 0] <= xy[i, 0] and xy[j, 1] <= xy[i, 1]:
+                    if xy[j, 0] < xy[i, 0] or xy[j, 1] < xy[i, 1]:
+                        is_dominated = True
+                        break
+        if not is_dominated:
+            pareto_front[i] = 1
+    
+    # RIGHT BRANCH: Reverse Pareto in x (larger x is acceptable, minimize y)
+    # Point j dominates point i if: j.x >= i.x AND j.y <= i.y (with at least one strict inequality)
+    # This captures: "if we must move right (increase x), at least have lower y"
+    for i in right_indices:
+        is_dominated = False
+        for j in right_indices:
+            if i != j:
+                # Check if j dominates i (j is further right but has lower or equal y)
+                if xy[j, 0] >= xy[i, 0] and xy[j, 1] <= xy[i, 1]:
+                    if xy[j, 0] > xy[i, 0] or xy[j, 1] < xy[i, 1]:
+                        is_dominated = True
+                        break
+        if not is_dominated:
+            pareto_front[i] = 1
+    
+    return population_ids[pareto_front]
 
 def scatter(n_scatter, N, V, B, phi, delta, init, end, p_0):
     """
