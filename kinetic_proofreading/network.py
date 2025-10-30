@@ -6,7 +6,7 @@ import copy
 
 from tools import bc
 from tools import max_k
-from physics import build_matrix, build_k_dkp, build_kw_dkp, error
+from physics import build_matrix, error
 
 def define_eps(N, delta):
     eps_v = np.zeros([N,1])

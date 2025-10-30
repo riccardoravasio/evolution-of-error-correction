@@ -132,7 +132,7 @@ def moving_plot(x, y, N, label=''):
     return sort_idx, y_filtered, y_filtered_log, std, std_log
 
 def save_vars(track_speed, track_error, track_fpt, track_fptw, track_mu, track_S, track_k, track_kw, k_r, k_w, p_0, \
-    N, L, init, end, t_stall, mu, q, binom):
+    N, init, end, t_stall, mu, q):
 
     from physics import fitness_dissipation, error, firstpt, entropy_dissipation
 
