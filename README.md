@@ -11,7 +11,7 @@ Code for "Evolution of error correction through a need for speed"
 ```
 ### Kinetic proofreading
 
-Codes used for the model of kinetic proofreading and the in-silico evolution for speed of a random Markov network. General and evolution functions used across the Python notebooks are defined modularly in the Python codes `*.py` and loaded in each notebook `*.ipynb`. The data used to make the paper figures can be downloaded from [Zenodo 10.5281/zenodo.17478191](https://zenodo.org/uploads/17478191) by extracting the data from the kinetic proofreading directory and using the load functions in the notebooks. The Mathematica notebook used to find the results reported in the Supplementary Text is also shared.
+Codes used for the model of kinetic proofreading and the in-silico evolution for speed of a random Markov network. General and evolution functions used across the Python notebooks are defined modularly in the Python codes `*.py` and loaded in each notebook `*.ipynb`. The data used to make the paper figures can be downloaded from [Zenodo 10.5281/zenodo.17478191](https://zenodo.org/uploads/17478191) by extracting the data from the kinetic proofreading directory and using the load functions in the notebooks. The Mathematica notebook `*.nb` used to find the results reported in the Supplementary Text is also shared.
 
 ### Self-assembly
 
