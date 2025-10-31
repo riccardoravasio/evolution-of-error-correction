@@ -494,7 +494,7 @@ def varsims(
         u = system.set_param("g_se", gsemelt)
         for state in states:
             system.update_all(state, u)
-        results = system.evolve_states(
+        results = system.evolve(
             [states[i] for i in do_sims], size_max=smax, for_time=melttime
         )
         for i in do_sims:
@@ -511,7 +511,7 @@ def varsims(
         u = system.set_param("g_se", gsegrow)
         for state in states:
             system.update_all(state, u)
-        results = system.evolve_states(
+        results = system.evolve(
             [states[i] for i in do_sims], size_max=smax, for_time=meltperiod - melttime
         )
         for i in do_sims:
